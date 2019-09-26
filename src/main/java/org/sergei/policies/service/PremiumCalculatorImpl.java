@@ -27,7 +27,6 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
     @Override
     public double calculate(Policy policy) {
 
-
         List<PolicyObject> policyObjects = policy.getPolicyObjects();
         List<PolicySubObject> policySubObjects = new ArrayList<>();
 
