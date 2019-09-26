@@ -1,8 +1,9 @@
 package org.sergei.policies.service;
 
+import org.sergei.policies.dto.Policy;
 import org.sergei.policies.dto.PolicyObject;
 import org.sergei.policies.dto.PolicySubObject;
-import org.sergei.policies.dto.Policy;
+import org.sergei.policies.dto.RiskType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,10 +35,15 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
             List<PolicySubObject> subObjects = policyObject.getSubObjects();
             policySubObjects.addAll(subObjects);
         });
-
-        double premiumFire = calculatePremiumFire(policySubObjects);
-        double premiumWater = calculatePremiumWater(policySubObjects);
-
+        double premiumFire = 0.0;
+        double premiumWater = 0.0;
+        for (PolicySubObject policySubObject : policySubObjects) {
+            if (policySubObject.getRiskType().equals(RiskType.FIRE)) {
+                premiumFire = calculatePremiumFire(policySubObjects);
+            } else if (policySubObject.getRiskType().equals(RiskType.WATER)) {
+                premiumWater = calculatePremiumWater(policySubObjects);
+            }
+        }
         return premiumFire + premiumWater;
     }
 
