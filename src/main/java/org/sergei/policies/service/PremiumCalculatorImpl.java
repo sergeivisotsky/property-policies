@@ -39,8 +39,10 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
         double premiumWater = 0.0;
         for (PolicySubObject policySubObject : policySubObjects) {
             if (policySubObject.getRiskType().equals(RiskType.FIRE)) {
+                log.debug("Premium fire handled");
                 premiumFire = calculatePremiumFire(policySubObjects);
             } else if (policySubObject.getRiskType().equals(RiskType.WATER)) {
+                log.debug("Premium fire handled");
                 premiumWater = calculatePremiumWater(policySubObjects);
             }
         }
@@ -63,8 +65,8 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
                     coefficientFire = 0.023;
                 }
                 premiumFire = sumInsured * coefficientFire;
+                log.debug("Premium fire calculated: {} with coefficientFire: {}", premiumFire, coefficientFire);
             } else {
-                log.info("Sum insured cannot be null");
                 throw new RuntimeException("Sum insured cannot be null");
             }
         }
@@ -87,8 +89,8 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
                     coefficientWater = 0.05;
                 }
                 premiumWater = sumInsured * coefficientWater;
+                log.debug("Premium water calculated: {} with coefficientWater: {}", premiumWater, coefficientWater);
             } else {
-                log.info("Sum insured cannot be null");
                 throw new RuntimeException("Sum insured cannot be null");
             }
         }
