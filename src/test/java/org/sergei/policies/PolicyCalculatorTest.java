@@ -2,7 +2,9 @@ package org.sergei.policies;
 
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
-import org.sergei.policies.dto.*;
+import org.sergei.policies.dto.Policy;
+import org.sergei.policies.dto.PolicySubObject;
+import org.sergei.policies.dto.RiskType;
 import org.sergei.policies.service.PremiumCalculator;
 import org.sergei.policies.service.PremiumCalculatorImpl;
 
@@ -28,7 +30,7 @@ public class PolicyCalculatorTest {
     public void calculateTest() {
         Policy policy = PolicyConstructor.constructPolicyStub();
         double premium = premiumCalculator.calculate(policy);
-        System.out.println(premium);
+        assertEquals(9093.405454, premium, 0);
     }
 
     /**
