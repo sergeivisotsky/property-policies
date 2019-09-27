@@ -13,12 +13,12 @@ PREMIUM = PREMIUM_FIRE + PREMIUM_WATER
   * SUM_INSURED_WATER - total sum insured of all policy's sub-objects with type "Water"
   * COEFFICIENT_WATER - by default 0.1 but if equal or greater than 10 then 0.05
   
-### Technologies
+## Technologies
 * Java 8
 * Maven
 * JUnit
 
-### Run & Test
+## Run & Test
 This application does not use any open-source framework due to functionality implementation 
 does not require any framework at all and can be implemented using plain Java.
 
