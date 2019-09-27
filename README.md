@@ -1,4 +1,4 @@
-## Property policies
+# Property policies
 Functionality that calculates policy premium.
 
 In this iteration client stated that only risk types FIRE and WATER will be calculated, however 
