@@ -5,6 +5,7 @@ In this iteration client stated that only risk types FIRE and WATER will be calc
 it may be possible that in near future more risk types will be added.
 
 **Premium calculation formula:**
+
 PREMIUM = PREMIUM_FIRE + PREMIUM_WATER
 * PREMIUM_FIRE = SUM_INSURED_FIRE * COEFFICIENT_FIRE
   * SUM_INSURED_FIRE - total sum insured of all policy's sub-objects with type "Fire"
