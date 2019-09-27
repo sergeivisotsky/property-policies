@@ -21,6 +21,9 @@ public class PolicyCalculatorTest {
         premiumCalculator = new PremiumCalculatorImpl();
     }
 
+    /**
+     * Test for {@link PremiumCalculator#calculate(Policy)}
+     */
     @Test
     public void calculateTest() {
         Policy policy = PolicyConstructor.constructPolicyStub();
@@ -28,6 +31,9 @@ public class PolicyCalculatorTest {
         System.out.println(premium);
     }
 
+    /**
+     * Test for {@link PremiumCalculator#calculatePremiumFire(List)}
+     */
     @Test
     public void calculatePremiumFireTest() {
         PolicySubObject subObjectOne = PolicySubObject.newBuilder()
@@ -45,6 +51,9 @@ public class PolicyCalculatorTest {
         assertEquals(276.2093, premiumFire, 0);
     }
 
+    /**
+     * Test for {@link PremiumCalculator#calculatePremiumWater(List)}
+     */
     @Test
     public void calculatePremiumWaterTest() {
         PolicySubObject subObjectOne = PolicySubObject.newBuilder()
