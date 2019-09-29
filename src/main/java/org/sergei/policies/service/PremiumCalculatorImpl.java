@@ -7,8 +7,11 @@ import org.sergei.policies.dto.RiskType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.PostConstruct;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * @author Sergei Visotsky
@@ -17,8 +20,22 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
 
     private static final Logger log = LoggerFactory.getLogger(PremiumCalculatorImpl.class);
 
-    private Double coefficientFire = 0.013;
-    private Double coefficientWater = 0.1;
+    private Double coefficientFire;
+    private Double coefficientWater;
+
+    @PostConstruct
+    public void setUp() {
+        Properties props = new Properties();
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        try {
+            props.load(classLoader.getResourceAsStream("app.properties"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        coefficientFire = Double.valueOf(props.getProperty("coefficient.fire"));
+        coefficientWater = Double.valueOf(props.getProperty("coefficient.water"));
+    }
+
 
     /**
      * {@link PremiumCalculator#calculate(Policy)}
