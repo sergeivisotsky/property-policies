@@ -18,6 +18,7 @@ PREMIUM = PREMIUM_FIRE + PREMIUM_WATER
 * Java 8
 * Maven
 * JUnit
+* Logback + Sl4j
 
 ## Run & Test
 This application does not use any open-source framework due to functionality implementation 
