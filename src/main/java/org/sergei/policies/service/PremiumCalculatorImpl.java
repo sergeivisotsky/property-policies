@@ -4,7 +4,7 @@ import org.sergei.policies.dto.Policy;
 import org.sergei.policies.dto.PolicyObject;
 import org.sergei.policies.dto.PolicySubObject;
 import org.sergei.policies.dto.RiskType;
-import org.sergei.policies.utils.PropertyReader;
+import org.sergei.policies.utils.PropertyProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,16 +25,11 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
 
     @PostConstruct
     public void setUp() {
-        Properties props = PropertyReader.readPropertyFile();
+        Properties props = PropertyProvider.getPropertyFile();
         coefficientFire = Double.valueOf(props.getProperty("coefficient.fire"));
         coefficientWater = Double.valueOf(props.getProperty("coefficient.water"));
     }
 
-    /**
-     * {@link PremiumCalculator#calculate(Policy)}
-     *
-     * @return calculated premium value
-     */
     @Override
     public double calculate(Policy policy) {
 
@@ -59,12 +54,6 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
         return premiumFire + premiumWater;
     }
 
-    /**
-     * {@link PremiumCalculator#calculatePremiumFire(List)}
-     *
-     * @param policySubObjects all policy sub-objects
-     * @return calculated premium fire
-     */
     @Override
     public double calculatePremiumFire(List<PolicySubObject> policySubObjects) {
         double premiumFire = 0.0;
