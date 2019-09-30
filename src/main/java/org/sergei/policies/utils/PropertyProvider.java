@@ -6,7 +6,7 @@ import java.util.Properties;
 /**
  * @author Sergei Visotsky
  */
-public class PropertyProvider {
+public final class PropertyProvider {
 
     /**
      * So that it was impossible to create class instance
