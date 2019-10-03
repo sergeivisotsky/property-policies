@@ -24,6 +24,12 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
         this.riskTypePremiumCalculator = new RiskTypePremiumCalculatorImpl();
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param policy with all the sub objects
+     * @return premium calculated
+     */
     @Override
     public BigDecimal calculate(Policy policy) {
 
