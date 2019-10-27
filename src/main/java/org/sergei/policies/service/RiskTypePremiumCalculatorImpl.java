@@ -1,14 +1,13 @@
 package org.sergei.policies.service;
 
 import org.sergei.policies.dto.PolicySubObject;
-import org.sergei.policies.utils.PropertyProvider;
+import org.sergei.policies.config.AppPropertiesConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * @author Sergei Visotsky
@@ -22,9 +21,9 @@ public class RiskTypePremiumCalculatorImpl implements RiskTypePremiumCalculator 
 
     @PostConstruct
     public void setUp() {
-        Properties props = PropertyProvider.getPropertyFile();
-        coefficientFire = Double.valueOf(props.getProperty("coefficient.fire"));
-        coefficientWater = Double.valueOf(props.getProperty("coefficient.water"));
+        AppPropertiesConfiguration propConfig = AppPropertiesConfiguration.getInstance();
+        coefficientFire = Double.valueOf(propConfig.getValue("coefficient.fire"));
+        coefficientWater = Double.valueOf(propConfig.getValue("coefficient.water"));
     }
 
     /**

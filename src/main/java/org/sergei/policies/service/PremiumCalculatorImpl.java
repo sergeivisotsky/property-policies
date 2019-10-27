@@ -35,20 +35,24 @@ public class PremiumCalculatorImpl implements PremiumCalculator {
 
         policyObjects.forEach(policyObject -> {
             List<PolicySubObject> subObjects = policyObject.getSubObjects();
+            // Get all sub objects for each object
             policySubObjects.addAll(subObjects);
         });
         BigDecimal premiumFire = null;
         BigDecimal premiumWater = null;
         for (PolicySubObject policySubObject : policySubObjects) {
+            // Calculate premium in case if risk type is a fire
             if (policySubObject.getRiskType().equals(RiskType.FIRE)) {
                 log.debug("Premium fire handled");
                 premiumFire = riskTypePremiumCalculator.calculatePremiumFire(policySubObjects);
+                // Calculate premium in case if risk type is a water
             } else if (policySubObject.getRiskType().equals(RiskType.WATER)) {
                 log.debug("Premium fire handled");
                 premiumWater = riskTypePremiumCalculator.calculatePremiumWater(policySubObjects);
             }
         }
         if (premiumFire != null && premiumWater != null) {
+            // Calculate premium by formula pr = premiumFire + premiumWater
             return premiumFire.add(premiumWater);
         } else {
             log.error("Premium fire or premium water is null");
