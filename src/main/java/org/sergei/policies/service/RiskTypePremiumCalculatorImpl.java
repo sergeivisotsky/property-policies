@@ -29,9 +29,6 @@ public class RiskTypePremiumCalculatorImpl implements RiskTypePremiumCalculator 
 
     /**
      * {@inheritDoc}
-     *
-     * @param policySubObjects all policy sub-objects
-     * @return calculated premium
      */
     @Override
     public BigDecimal calculatePremiumFire(List<PolicySubObject> policySubObjects) {
@@ -54,9 +51,6 @@ public class RiskTypePremiumCalculatorImpl implements RiskTypePremiumCalculator 
 
     /**
      * {@inheritDoc}
-     *
-     * @param policySubObjects all policy sub-objects
-     * @return calculated premium water
      */
     @Override
     public BigDecimal calculatePremiumWater(List<PolicySubObject> policySubObjects) {
