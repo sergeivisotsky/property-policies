@@ -8,7 +8,7 @@ import java.util.List;
 public class PolicyObject {
 
     private String objectName;
-    List<PolicySubObject> subObjects;
+    private List<PolicySubObject> subObjects;
 
     public PolicyObject() {
     }
