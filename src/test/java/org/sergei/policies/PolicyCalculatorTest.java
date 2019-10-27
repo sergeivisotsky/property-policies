@@ -27,7 +27,7 @@ public class PolicyCalculatorTest {
      */
     @Test
     public void calculateTest() {
-        Policy policy = PolicyConstructor.constructPolicyStub();
+        Policy policy = PolicyMock.constructPolicyStub();
         BigDecimal expectedPremium = BigDecimal.valueOf(9093.405454);
         BigDecimal actualPremium = premiumCalculator.calculate(policy);
         assertEquals(expectedPremium, actualPremium);

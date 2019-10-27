@@ -10,12 +10,12 @@ import java.util.List;
  *
  * @author Sergei Visotsky
  */
-class PolicyConstructor {
+class PolicyMock {
 
     /**
      * So that it was unable to create class instances
      */
-    private PolicyConstructor() {
+    private PolicyMock() {
     }
 
     /**
