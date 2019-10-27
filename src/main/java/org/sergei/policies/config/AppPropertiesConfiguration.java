@@ -6,7 +6,7 @@ import java.util.Properties;
 /**
  * @author Sergei Visotsky
  */
-public final class AppPropertiesConfiguration {
+public class AppPropertiesConfiguration {
 
     private static AppPropertiesConfiguration instance = null;
 
