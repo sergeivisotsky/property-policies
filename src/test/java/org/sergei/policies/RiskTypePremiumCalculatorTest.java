@@ -1,6 +1,7 @@
 package org.sergei.policies;
 
 import com.google.common.collect.ImmutableList;
+import org.junit.Before;
 import org.junit.Test;
 import org.sergei.policies.dto.PolicySubObject;
 import org.sergei.policies.dto.RiskType;
@@ -17,9 +18,10 @@ import static org.junit.Assert.assertEquals;
  */
 public class RiskTypePremiumCalculatorTest {
 
-    private final RiskTypePremiumCalculator riskTypePremiumCalculator;
+    private RiskTypePremiumCalculator riskTypePremiumCalculator;
 
-    public RiskTypePremiumCalculatorTest() {
+    @Before
+    public void setUp() {
         this.riskTypePremiumCalculator = new RiskTypePremiumCalculatorImpl();
     }
 

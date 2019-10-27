@@ -1,5 +1,6 @@
 package org.sergei.policies;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.sergei.policies.dto.Policy;
 import org.sergei.policies.service.PremiumCalculator;
@@ -16,8 +17,9 @@ public class PolicyCalculatorTest {
 
     private PremiumCalculator premiumCalculator;
 
-    public PolicyCalculatorTest() {
-        premiumCalculator = new PremiumCalculatorImpl();
+    @Before
+    public void setUp() {
+        this.premiumCalculator = new PremiumCalculatorImpl();
     }
 
     /**
